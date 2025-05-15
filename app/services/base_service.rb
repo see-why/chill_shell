@@ -1,5 +1,7 @@
-class BaseService
-  def call(...)
-    new(...).call
+module Services
+  class BaseService
+    def call(...)
+      new(...).call
+    end
   end
 end
