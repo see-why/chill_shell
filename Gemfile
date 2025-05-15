@@ -25,6 +25,7 @@ gem "bcrypt"
 gem "pg"
 gem "dotenv-rails"
 gem "pry"
+gem "csv"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

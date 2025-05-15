@@ -1,0 +1,48 @@
+Acceptance Criteria
+
+ZayZoon determines how much money we can advance to an employee based on their past earnings.
+Employers send CSV files with earnings data for their employees.
+Create a scalable system that parses employer earnings files into records we can use for our calculations (the actual calculations are out of scope)
+For the purpose of this exercise the parser can be invoked from the Rails console and the CSV files can be accessed from the local filesystem.
+
+
+Technical notes
+
+At the time we ingest earnings data, the Employer and Employee records have already been created in our system.
+Each employer will have their own unique CSV data layout (i.e. different column names and data formats for dates, dollar amounts, etc).
+We are provided the CSV data layout for each Employer when they sign up with us.
+Employee records have already been created in our system, with an “external_ref” that corresponds to the employer’s internal employee ID (see below)
+Earnings must be associated with the correct employee by cross referencing against the employee’s external_ref
+
+Base models (feel free to amend as part of your solution):
+
+Employers have many Employees
+Employees have many Earnings
+Employer model:
+name
+Employee model:
+employer_id
+name
+external_ref (Employee’s ID in the Employer’s payroll system)
+Earning model:
+employee_id
+earning_date: date
+amount: decimal
+
+
+The employer Acme Inc. is giving us their earnings CSV in the following format
+
+EmployeeNumber (string) - unique ID of the employee in the employer's system
+CheckDate (in non-standard format MM/DD/YYYY, ex: “12/14/2020” for Dec 14, 2020)
+Amount (string with dollar sign, ex: “$800”)
+
+
+The employer BetaCo is giving us their earnings CSV in the following format
+
+earningDate (in standard format YYYY-MM-DD, ex: “2020-12-14” for Dec 14, 2020)
+employee (string) - unique ID of the employee in the employer's system
+netAmount (float)
+
+
+Please find attached example CSV files from these two employers.
+
