@@ -1,7 +1,13 @@
 
+require "csv"
+
 module Services
   class EarningManager < BaseService
-    def call()
+    def initialize
+      super()
+    end
+
+    def call
       path = "BetaCoEarnings.csv"
       File.open(path) do |file|
         CSV.foreach(file, headers: true) do |row|
