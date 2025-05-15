@@ -1,7 +1,7 @@
 module Services
   class BaseService
-    def self.call(...)
-      new(...).call
+    def self.call(*args)
+      new(*args).call
     end
   end
 end

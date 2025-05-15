@@ -3,5 +3,5 @@ class Employee < ApplicationRecord
   has_many :earnings
 
   validates :name, presence: true
-  validates :employer, :unique
+  validates :employee_id, presence: true
 end
