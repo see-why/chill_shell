@@ -8,7 +8,7 @@ module Services
     end
 
     def call
-      path = "BetaCoEarnings.csv"
+      path = "csv/BetaCoEarnings.csv"
       File.open(path) do |file|
         CSV.foreach(file, headers: true) do |row|
           employee = Employee.find_by(employee_id: row["employee"])
